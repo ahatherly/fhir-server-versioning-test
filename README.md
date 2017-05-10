@@ -18,33 +18,42 @@ Changes to the FHIR reference server as part of this investigation will be check
 	- The name at the end of the URL path: "url": "http://fhir-test.nhs.uk/StructureDefinition/gpconnect-appointment-1"
 - In the above example the names are the same apart from case, and both have the major version in
 
-- *Working assumption 1* : Major version can be retained in the filename, but NOT in the resource content
-- *Working assumption 2* : Major and minor versions will be held in the server using FHIR versioning - patch versions will not
-- *Working assumption 3* : Patch versions (for bug fixes, wording tweaks, etc) will over-write the relevant minor version (i.e. not retained in the FHIR server)
-- *Working assumption 4* : Maturity of a profile (Draft, Active, Retired) will be held in the status element to differentiate between draft and live profiles
-- *Working assumption 5* : The profile index pages should show each profile once, with decorators to indicate the latest active version, and latest draft version if newer
+- **Working assumption 1** : Major version can be retained in the filename, but NOT in the resource content
+- **Working assumption 2** : Major and minor versions will be held in the server using FHIR versioning - patch versions will not
+- **Working assumption 3** : Patch versions (for bug fixes, wording tweaks, etc) will over-write the relevant minor version (i.e. not retained in the FHIR server)
+- **Working assumption 4** : Maturity of a profile (Draft, Active, Retired) will be held in the status element to differentiate between draft and live profiles
+- **Working assumption 5** : The profile index pages should show each profile once, with decorators to indicate the latest active version, and latest draft version if newer
 
 - To achieve this, we can alter the way the FHIR server loads profiles, so it can retain previous versions as required.
 
 ## Test steps
 
-- Create a new profile "Adam-Patient-1" with version 0.1:
+- **STEP 1** Create a new profile "Adam-Patient-1" with version 0.1:
 	- name="Adam-Patient"
 	- version="0.1"
 	- status="draft"
+	- url in the profile for all tests is https://fhir.nhs.uk/StructureDefinition/adam-patient
 - Add the file into the FHIR server directory
 	- Expected:
 		- Server creates a "versioned" directory
 		- Server reads the major and minor version from inside the profile itself
 		- Server checks the version is in the form NN or NN.NN or NN.NN.NN - otherwise it gets rejected
 		- Major, minor and patch versions parsed into integers (note: filename is ignored)
-		- Server writes a copy of the file into this directory with "-versioned-0.1" (dropping patch version)
+		- The ID of the resource is taken from the URL (adam-patient) and NOT the name
+		- Server writes a copy of the file into this directory in the format [id]-versioned-[version] - i.e. (adam-patient-versioned-0.1) (dropping patch version)
 		- After this pre-process step, all versioned profiles are loaded into the FHIR server index from the versioned directory only
 		- Rejected profiles (those that can't be loaded) should be reported somehow - perhaps on a "secret" URL
-		- FHIR server profile index shows a single entry for "Adam-Patient-1" with a [Draft-0.1] decorator
-		- FHIR server rendered entry for "Adam-Patient-1" includes a version history on the right, showing just [Draft-0.1]
+		- FHIR server profile index shows a single entry for "Adam-Patient" with a [Draft-0.1] decorator
+		- FHIR bundle for [baseurl]/StructureDefinition?name=Adam-Patient bundle returned contains a single entry for "Adam-Patient" with version 0.1 in it
+		- FHIR bundle for [baseurl]/StructureDefinition/adam-patient/_history bundle returned contains a single entry for "Adam-Patient" with version 0.1 in it
+		- FHIR versioned read on [baseurl]/StructureDefinition/adam-patient/_history/0.1 returns the profile with version 0.1
+		- FHIR server rendered entry for "Adam-Patient" includes a version history on the right, showing just [Draft-0.1]
 		- Each version in the history list links to the versioned FHIR URL for that version
-- Create a new profile "Adam-Patient-1" with version 1.0:
+- Changes required to FHIR server to achieve this:
+	- 
+
+
+- **STEP 2** Create a new profile "Adam-Patient-1" with version 1.0:
 	- name="Adam-Patient"
 	- version="1.0"
 	- status="active"
@@ -53,10 +62,10 @@ Changes to the FHIR reference server as part of this investigation will be check
 		- Server reads the major and minor version from inside the profile, parses, etc
 		- Server writes a copy of the file into this directory with "-versioned-1.0"
 		- Versioned directory now contains two files - 0.1 and 1.0 (note: this is still a single file in Git)
-		- FHIR server profile index shows a single entry for "Adam-Patient-1" with a [Live-1.0] decorator
-		- FHIR server rendered entry for "Adam-Patient-1" includes a version history on the right, showing [Draft-0.1] and [Active-1.0]
+		- FHIR server profile index shows a single entry for "Adam-Patient" with a [Live-1.0] decorator
+		- FHIR server rendered entry for "Adam-Patient" includes a version history on the right, showing [Draft-0.1] and [Active-1.0]
 		- Each version in the history list links to the versioned FHIR URL for that version
-- Update the profile "Adam-Patient-1":
+- **STEP 3** Update the profile "Adam-Patient-1":
 	- Change some values
 	- Update version to "1.1"
 	- status="draft"
@@ -65,10 +74,10 @@ Changes to the FHIR reference server as part of this investigation will be check
 		- Server reads the major and minor version from inside the profile, parses, etc
 		- Server writes a copy of the file into this directory with "-versioned-1.1"
 		- Versioned directory now contains three files - 0.1, 1.0 and 1.1 (note: this is still a single file in Git)
-		- FHIR server profile index shows a single entry for "Adam-Patient-1" with two decorators: [Live-1.0] and [Draft-1.1]
-		- FHIR server rendered entry for "Adam-Patient-1" includes a version history on the right, showing [Draft-0.1], [Active-1.0], [Active-1.1]
+		- FHIR server profile index shows a single entry for "Adam-Patient" with two decorators: [Live-1.0] and [Draft-1.1]
+		- FHIR server rendered entry for "Adam-Patient" includes a version history on the right, showing [Draft-0.1], [Active-1.0], [Active-1.1]
 		- Each version in the history list links to the versioned FHIR URL for that version
-- Update the profile "Adam-Patient-1":
+- **STEP 4** Update the profile "Adam-Patient-1":
 	- Change some values
 	- Update version to "1.1.1"
 	- status="draft"
@@ -76,7 +85,22 @@ Changes to the FHIR reference server as part of this investigation will be check
 	- Expected:
 		- Server reads the major and minor version from inside the profile, parses, etc
 		- Server writes a copy of the file into this directory with "-versioned-1.1" over-writing previous file with this name
-		- Versioned directory still contains two files - 1.0 and 1.1 (1.1 file is now actually 1.1.1 patch version)
-		- FHIR server rendered entry for "Adam-Patient-1" includes a version history on the right, showing [Draft-0.1], [Active-1.0], [Active-1.1.1]
+		- Versioned directory still contains three files - 0.1, 1.0 and 1.1 (1.1 file is now actually 1.1.1 patch version)
+		- FHIR server profile index still shows a single entry for "Adam-Patient" with two decorators: [Live-1.0] and [Draft-1.1.1]
+		- FHIR server rendered entry for "Adam-Patient" includes a version history on the right, showing [Draft-0.1], [Active-1.0], [Active-1.1.1]
 		- Each version in the history list links to the versioned FHIR URL for that version
+		- NOTE: URL for version 1.1.1 ends with 1.1 as the patch version has been discarded, so the versioned URL never changes between patch versions
+- **STEP 5** Create a new profile file "Adam-Patient-2":
+	- Change some values
+	- Update version to "2.0"
+	- status="active"
+- Add the file into the FHIR server directory
+	- Expected:
+		- Server reads the major and minor version from inside the profile, parses, etc
+		- Server writes a copy of the file into this directory with "-versioned-2.0"
+		- Versioned directory now contains four files - 0.1, 1.0, 1.1 and 2.0
+		- FHIR server profile index still shows a single entry for "Adam-Patient" with one decorators: [Live-2.0]
+		- FHIR server rendered entry for "Adam-Patient" includes a version history on the right, showing [Draft-0.1], [Active-1.0], [Active-1.1.1], [Active-2.0]
+		- Each version in the history list links to the versioned FHIR URL for that version
+
 
