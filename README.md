@@ -49,8 +49,9 @@ Changes to the FHIR reference server as part of this investigation will be check
 		- FHIR versioned read on [baseurl]/StructureDefinition/adam-patient/_history/0.1 returns the profile with version 0.1
 		- FHIR server rendered entry for "Adam-Patient" includes a version history on the right, showing just [Draft-0.1]
 		- Each version in the history list links to the versioned FHIR URL for that version
+
 - Changes required to FHIR server to achieve this:
-	- 
+	- TBC
 
 
 - **STEP 2** Create a new profile "Adam-Patient-1" with version 1.0:
