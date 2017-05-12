@@ -28,7 +28,11 @@ Changes to the FHIR reference server as part of this investigation will be check
 
 ## Test steps
 
-- **STEP 1** Create a new profile "Adam-Patient-1" with version 0.1:
+### STEP 1
+
+**Create a new profile "Adam-Patient-1" with version 0.1**
+
+- Test data:
 	- name="Adam-Patient"
 	- version="0.1"
 	- status="draft"
@@ -54,7 +58,11 @@ Changes to the FHIR reference server as part of this investigation will be check
 	- TBC
 
 
-- **STEP 2** Create a new profile "Adam-Patient-1" with version 1.0:
+### STEP 2
+
+**Create a new profile "Adam-Patient-1" with version 1.0**
+
+- Test data:
 	- name="Adam-Patient"
 	- version="1.0"
 	- status="active"
@@ -66,7 +74,11 @@ Changes to the FHIR reference server as part of this investigation will be check
 		- FHIR server profile index shows a single entry for "Adam-Patient" with a [Live-1.0] decorator
 		- FHIR server rendered entry for "Adam-Patient" includes a version history on the right, showing [Draft-0.1] and [Active-1.0]
 		- Each version in the history list links to the versioned FHIR URL for that version
-- **STEP 3** Update the profile "Adam-Patient-1":
+### STEP 3
+
+**Update the profile "Adam-Patient-1"**
+
+- Test data:
 	- Change some values
 	- Update version to "1.1"
 	- status="draft"
@@ -78,7 +90,12 @@ Changes to the FHIR reference server as part of this investigation will be check
 		- FHIR server profile index shows a single entry for "Adam-Patient" with two decorators: [Live-1.0] and [Draft-1.1]
 		- FHIR server rendered entry for "Adam-Patient" includes a version history on the right, showing [Draft-0.1], [Active-1.0], [Active-1.1]
 		- Each version in the history list links to the versioned FHIR URL for that version
-- **STEP 4** Update the profile "Adam-Patient-1":
+
+### STEP 4
+
+**Update the profile "Adam-Patient-1"**
+
+- Test data:
 	- Change some values
 	- Update version to "1.1.1"
 	- status="draft"
@@ -91,7 +108,11 @@ Changes to the FHIR reference server as part of this investigation will be check
 		- FHIR server rendered entry for "Adam-Patient" includes a version history on the right, showing [Draft-0.1], [Active-1.0], [Active-1.1.1]
 		- Each version in the history list links to the versioned FHIR URL for that version
 		- NOTE: URL for version 1.1.1 ends with 1.1 as the patch version has been discarded, so the versioned URL never changes between patch versions
-- **STEP 5** Create a new profile file "Adam-Patient-2":
+### STEP 5
+
+**Create a new profile file "Adam-Patient-2"**
+
+- Test data:
 	- Change some values
 	- Update version to "2.0"
 	- status="active"
