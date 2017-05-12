@@ -12,18 +12,19 @@ import ca.uhn.fhir.model.dstu2.resource.Bundle;
 import ca.uhn.fhir.model.dstu2.resource.Bundle.Entry;
 import ca.uhn.fhir.model.dstu2.resource.StructureDefinition;
 import ca.uhn.fhir.rest.client.IGenericClient;
+import uk.nhs.fhir.FHIRServerTests;
 
-public class VersionedProfileTest1 extends VersionedProfileTests {
+public class VersionedProfileTest1 extends FHIRServerTests {
 	
 	@Before
 	public void setUp() throws IOException, InterruptedException {
 		removeAllProfilesFromServer();
-		client = ctx.newRestfulGenericClient(FHIR_SERVER_URL);
+		client = ctx.newRestfulGenericClient(fhirServerURL);
 	}
 	
 	@Test
 	public void LoadProfileStep1() throws IOException, InterruptedException {
-		copyTestFileIntoFHIRServer("Step1-Adam-Patient-1.xml");
+		copyTestFileIntoFHIRServer("VersioningProfiles/Step1-Adam-Patient-1.xml");
 		Thread.sleep(10000); // Wait 10 seconds for the server to pick the files up
 		
 		// Now, use the HAPI FHIR client to retrieve the profile from the FHIR server so we can check it

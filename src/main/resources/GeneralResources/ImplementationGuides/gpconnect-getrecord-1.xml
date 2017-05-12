@@ -1,0 +1,449 @@
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+	<extension url="urn:fhir.nhs.uk:extension/IG-ExamplesXML">
+		<valueBoolean value="true" />
+	</extension>
+	<extension url="urn:fhir.nhs.uk:extension/IG-ExamplesJSON">
+		<valueBoolean value="true" />
+	</extension>
+	<extension url="urn:fhir.nhs.uk:extension/IG-ValuesetsXML">
+		<valueBoolean value="true" />
+	</extension>
+	<extension url="urn:fhir.nhs.uk:extension/IG-ValuesetsJSON">
+		<valueBoolean value="true" />
+	</extension>
+	<extension url="urn:fhir.nhs.uk:extension/IG-StructuresXML">
+		<valueBoolean value="true" />
+	</extension>
+	<extension url="urn:fhir.nhs.uk:extension/IG-StructuresJSON">
+		<valueBoolean value="true" />
+	</extension>
+	<extension url="urn:fhir.nhs.uk:extension/IG-OperationsXML">
+		<valueBoolean value="true" />
+	</extension>
+	<extension url="urn:fhir.nhs.uk:extension/IG-OperationsJSON">
+		<valueBoolean value="true" />
+	</extension>
+	<extension url="urn:fhir.nhs.uk:extension/Schemas">
+		<valueBoolean value="true" />
+	</extension>
+	<extension url="urn:fhir.nhs.uk:extension/IG-OnlineVersion">
+		<valueBoolean value="false" />
+	</extension>
+	<extension url="urn:fhir.nhs.uk:extension/IG-OnlineAnalytics">
+		<valueString value="UA-67795986-1" />
+	</extension>
+	<extension url="urn:fhir.nhs.uk:extension/SoftwareVersion">
+		<valueString value="2.7.6137.25942" />
+	</extension>
+	<version value="Version 1.0.0 : RC1" />
+	<url value="https://fhir.nhs.uk/ImplementationGuide/gpconnect-getrecord-1" />
+	<name value="GP Connect Get Record FHIR API Implementation Guide" />
+	<publisher value="HSCIC" />
+	<date value="2016-10-28" />
+	<copyright value="HSCIC" />
+	<package>
+		<name value="Profile.GetRecordQueryRequest" />
+		<resource>
+			<extension url="urn:hscic:publishOrder">
+				<valueInteger value="0" />
+			</extension>
+			<extension url="urn:hscic:resourceType">
+				<valueString value="OperationDefinition" />
+			</extension>
+			<purpose value="profile" />
+			<name value="GPConnect-CareRecord-Operation-1" />
+			<description value="This Operation resource carries information on the Get Record Query request parameters." />
+			<sourceUri value="http://fhir.nhs.net/OperationDefinition/gpconnect-carerecord-operation-1" />
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Operation-NHSPatientRecord" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/OperationDefinition/gpconnect-carerecord-operation-1" />
+			</exampleFor>
+		</resource>
+	</package>
+	<package>
+		<name value="Profile.GetRecordQueryResponse-HTMLView" />
+		<resource>
+			<extension url="urn:hscic:publishOrder">
+				<valueInteger value="4" />
+			</extension>
+			<extension url="urn:hscic:resourceType">
+				<valueString value="StructureDefinition" />
+			</extension>
+			<purpose value="profile" />
+			<name value="GPConnect-CareRecord-Composition-1" />
+			<description value="The Composition resource carries information in the patient's record.&#xD;&#xA;&#xD;&#xA;View [Composition Resource Changes] for a delta of changes made to the standard FHIR DSTU2 Composition resource to allow its usage as a Care Record for use within the GP Connect APIs.&#xD;&#xA;&#xD;&#xA;[Composition Resource Changes]:Composition-Care-Record.pdf" />
+			<sourceUri value="http://fhir.nhs.net/StructureDefinition/gpconnect-carerecord-composition-1" />
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Composition-CareRecord-AdministrativeItems" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-carerecord-composition-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Composition-CareRecord-AllergiesandSensitivities" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-carerecord-composition-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Composition-CareRecord-ClinicalItems" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-carerecord-composition-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Composition-CareRecord-Encounters" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-carerecord-composition-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Composition-CareRecord-Immunisations" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-carerecord-composition-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Composition-CareRecord-Investigations" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-carerecord-composition-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Composition-CareRecord-Medications" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-carerecord-composition-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Composition-CareRecord-Observations" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-carerecord-composition-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Composition-CareRecord-PatientDetails" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-carerecord-composition-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Composition-CareRecord-Problems" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-carerecord-composition-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Composition-CareRecord-Referrals" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-carerecord-composition-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Composition-CareRecord-Summary" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-carerecord-composition-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<extension url="urn:hscic:publishOrder">
+				<valueInteger value="25" />
+			</extension>
+			<extension url="urn:hscic:resourceType">
+				<valueString value="StructureDefinition" />
+			</extension>
+			<purpose value="profile" />
+			<name value="GPConnect-Device-1" />
+			<description value="The Device resource represents a manufactured item that is used in the provision of healthcare related services.&#xD;&#xA;&#xD;&#xA;View [Device Resource Changes] for a delta of changes made to the standard FHIR DSTU2 Device resource for use within the GP Connect APIs.&#xD;&#xA;&#xD;&#xA;[Device Resource Changes]:Device.pdf" />
+			<sourceUri value="http://fhir.nhs.net/StructureDefinition/gpconnect-device-1" />
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Device" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-device-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<extension url="urn:hscic:publishOrder">
+				<valueInteger value="21" />
+			</extension>
+			<extension url="urn:hscic:resourceType">
+				<valueString value="StructureDefinition" />
+			</extension>
+			<purpose value="profile" />
+			<name value="GPConnect-Location-1" />
+			<description value="The Location resource provides information and details on the physical location and the services provided.&#xD;&#xA;&#xD;&#xA;View [Location Resource Changes] for a delta of changes made to the standard FHIR DSTU2 Location resource for use within the GP Connect APIs.&#xD;&#xA;&#xD;&#xA;[Location Resource Changes]:Location.pdf" />
+			<sourceUri value="http://fhir.nhs.net/StructureDefinition/gpconnect-location-1" />
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Location-1a" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-location-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Location-1b" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-location-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<extension url="urn:hscic:publishOrder">
+				<valueInteger value="2" />
+			</extension>
+			<extension url="urn:hscic:resourceType">
+				<valueString value="StructureDefinition" />
+			</extension>
+			<purpose value="profile" />
+			<name value="GPConnect-OperationOutcome-1" />
+			<description value="&#xD;&#xA;The Operation Outcome resource supports a collection of error, warning or information messages that result from a GP Connect Query Request.&#xD;&#xA;&#xD;&#xA;View [Operation Outcome Resource Changes] for a delta of changes made to the standard FHIR DSTU2 Operation Outcome resource for use within the GP Connect APIs.&#xD;&#xA;&#xD;&#xA;[Operation Outcome Resource Changes]:OperationOutcome.pdf" />
+			<sourceUri value="http://fhir.nhs.net/StructureDefinition/gpconnect-operationoutcome-1" />
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="OperationOutcome-1a" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-operationoutcome-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="OperationOutcome-1b" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-operationoutcome-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<extension url="urn:hscic:publishOrder">
+				<valueInteger value="22" />
+			</extension>
+			<extension url="urn:hscic:resourceType">
+				<valueString value="StructureDefinition" />
+			</extension>
+			<purpose value="profile" />
+			<name value="GPConnect-Organization-1" />
+			<description value="This Organization resource represents the organisation that employs the healthcare practitioner.&#xD;&#xA;&#xD;&#xA;View [Organization Resource Changes] for a delta of changes made to the standard FHIR DSTU2 Organization resource for use within the GP Connect APIs.&#xD;&#xA;&#xD;&#xA;[Organization Resource Changes]:Organization.pdf" />
+			<sourceUri value="http://fhir.nhs.net/StructureDefinition/gpconnect-organization-1" />
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="GP Organization" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-organization-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Organization-1a" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-organization-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Organization-1b" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-organization-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<extension url="urn:hscic:publishOrder">
+				<valueInteger value="3" />
+			</extension>
+			<extension url="urn:hscic:resourceType">
+				<valueString value="StructureDefinition" />
+			</extension>
+			<purpose value="profile" />
+			<name value="GPConnect-Patient-1" />
+			<description value="The Patient resource carries the patient demographic details.&#xD;&#xA;&#xD;&#xA;View [Patient Resource Changes] for a delta of changes made to the standard FHIR DSTU2 Patient resource for use within the GP Connect APIs.&#xD;&#xA;&#xD;&#xA;[Patient Resource Changes]:Patient.pdf" />
+			<sourceUri value="http://fhir.nhs.net/StructureDefinition/gpconnect-patient-1" />
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Patient" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-patient-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<extension url="urn:hscic:publishOrder">
+				<valueInteger value="20" />
+			</extension>
+			<extension url="urn:hscic:resourceType">
+				<valueString value="StructureDefinition" />
+			</extension>
+			<purpose value="profile" />
+			<name value="GPConnect-Practitioner-1" />
+			<description value="The Practitioner resource represents the healthcare professional directly or indirectly involved in the provision of healthcare related services.&#xD;&#xA;&#xD;&#xA;View [Practitioner Resource Changes] for a delta of changes made to the standard FHIR DSTU2 Practitioner resource for use within the GP Connect APIs.&#xD;&#xA;&#xD;&#xA;[Practitioner Resource Changes]:Practitioner.pdf" />
+			<sourceUri value="http://fhir.nhs.net/StructureDefinition/gpconnect-practitioner-1" />
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="GP Practitioner" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-practitioner-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Practitioner" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-practitioner-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Practitioner-1a" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-practitioner-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<extension url="urn:hscic:publishOrder">
+				<valueInteger value="1" />
+			</extension>
+			<extension url="urn:hscic:resourceType">
+				<valueString value="StructureDefinition" />
+			</extension>
+			<purpose value="profile" />
+			<name value="GPConnect-Searchset-Bundle-1" />
+			<description value="&#xD;&#xA;The 'GPConnect-Searchset-Bundle-1' Bundle resource profile is used in the GP Connect outbound interface as a container to collect a combination of the GP Connect Query Response resources, the combination and order of which is dependent on the GP Connect Query Response interaction:&#xD;&#xA;&#xD;&#xA;- GPConnect-OperationOutcome-1 [GPConnect-OperationOutcome-1]&#xD;&#xA;- GPConnect-Patient-1 [GPConnect-Patient-1]&#xD;&#xA;- GPConnect-CareRecord-Composition-1 [GPConnect-CareRecord-Composition-1]&#xD;&#xA;- GPConnect-Device-1 [GPConnect-Device-1]&#xD;&#xA;- GPConnect-Location-1 [GPConnect-Location-1]&#xD;&#xA;- GPConnect-Organization-1 [GPConnect-Organization-1]&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;[GPConnect-OperationOutcome-1]:gpconnect-operationoutcome-1.html&#xD;&#xA;[GPConnect-Patient-1]:gpconnect-patient-1.html&#xD;&#xA;[GPConnect-CareRecord-Composition-1]:gpconnect-carerecord-composition-1.html&#xD;&#xA;[GPConnect-Device-1]:gpconnect-device-1.html &#xD;&#xA;[GPConnect-Location-1]:gpconnect-location-1.html&#xD;&#xA;[GPConnect-Organization-1]:gpconnect-organization-1.html&#xD;&#xA;&#xD;&#xA;View [Bundle (Searchset) Resource Changes] for a delta of changes made to the standard FHIR DSTU2 Bundle resource to allow its usage as a Searchset for use within the GP Connect APIs.&#xD;&#xA;&#xD;&#xA;[Bundle (Searchset) Resource Changes]:Bundle-Searchset.pdf" />
+			<sourceUri value="http://fhir.nhs.net/StructureDefinition/gpconnect-searchset-bundle-1" />
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Bundle-CareRecord-Summary" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-searchset-bundle-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Bundle-CareRecord-Medications" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-searchset-bundle-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<purpose value="example" />
+			<name value="Bundle-OperationOutcome" />
+			<exampleFor>
+				<reference value="http://fhir.nhs.net/StructureDefinition/gpconnect-searchset-bundle-1" />
+			</exampleFor>
+		</resource>
+		<resource>
+			<extension url="urn:hscic:resourceType">
+				<valueString value="ValueSet" />
+			</extension>
+			<purpose value="terminology" />
+			<name value="Administrative Gender" />
+			<sourceUri value="http://fhir.nhs.net/ValueSet/administrative-gender-1" />
+		</resource>
+		<resource>
+			<extension url="urn:hscic:resourceType">
+				<valueString value="ValueSet" />
+			</extension>
+			<purpose value="terminology" />
+			<name value="Administrative Gender NHS Data Model and Dictionary" />
+			<sourceUri value="http://fhir.nhs.net/ValueSet/administrative-gender-ddmap-1" />
+		</resource>
+		<resource>
+			<extension url="urn:hscic:resourceType">
+				<valueString value="ValueSet" />
+			</extension>
+			<purpose value="terminology" />
+			<name value="Care Setting Codes SnCT" />
+			<sourceUri value="http://fhir.nhs.net/ValueSet/care-setting-codes-snct-1" />
+		</resource>
+		<resource>
+			<extension url="urn:hscic:resourceType">
+				<valueString value="ValueSet" />
+			</extension>
+			<purpose value="terminology" />
+			<name value="CDA Care Setting Type SnCT" />
+			<sourceUri value="http://fhir.nhs.net/ValueSet/cda-care-setting-type-snct-1" />
+		</resource>
+		<resource>
+			<extension url="urn:hscic:resourceType">
+				<valueString value="ValueSet" />
+			</extension>
+			<purpose value="terminology" />
+			<name value="CDA Person Relationship Type" />
+			<sourceUri value="http://fhir.nhs.net/ValueSet/cda-person-relationship-type-1" />
+		</resource>
+		<resource>
+			<extension url="urn:hscic:resourceType">
+				<valueString value="ValueSet" />
+			</extension>
+			<purpose value="terminology" />
+			<name value="Device Type Codes SnCT" />
+			<sourceUri value="http://fhir.nhs.net/ValueSet/device-type-codes-snct-1" />
+		</resource>
+		<resource>
+			<extension url="urn:hscic:resourceType">
+				<valueString value="ValueSet" />
+			</extension>
+			<purpose value="terminology" />
+			<name value="Document Type Codes SnCT" />
+			<sourceUri value="http://fhir.nhs.net/ValueSet/document-type-codes-snct-1" />
+		</resource>
+		<resource>
+			<extension url="urn:hscic:resourceType">
+				<valueString value="ValueSet" />
+			</extension>
+			<purpose value="terminology" />
+			<name value="GP Connect Error or Warning Code" />
+			<sourceUri value="http://fhir.nhs.net/ValueSet/gpconnect-error-or-warning-code-1" />
+		</resource>
+		<resource>
+			<extension url="urn:hscic:resourceType">
+				<valueString value="ValueSet" />
+			</extension>
+			<purpose value="terminology" />
+			<name value="GP Connect Record Section" />
+			<sourceUri value="http://fhir.nhs.net/ValueSet/gpconnect-record-section-1" />
+		</resource>
+		<resource>
+			<extension url="urn:hscic:resourceType">
+				<valueString value="ValueSet" />
+			</extension>
+			<purpose value="terminology" />
+			<name value="Human Language" />
+			<sourceUri value="http://fhir.nhs.net/ValueSet/human-language-1" />
+		</resource>
+		<resource>
+			<extension url="urn:hscic:resourceType">
+				<valueString value="ValueSet" />
+			</extension>
+			<purpose value="terminology" />
+			<name value="SDS Job Role Name" />
+			<sourceUri value="http://fhir.nhs.net/ValueSet/sds-job-role-name-1" />
+		</resource>
+	</package>
+	<page>
+	  <source value="gpconnect.md"/>
+      <name value="GP Connect Implementation Guide"/>
+      <kind value="include"/>
+      <format value="text/markdown"/>
+	</page>
+</ImplementationGuide>
