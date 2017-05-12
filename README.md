@@ -13,10 +13,10 @@ Changes to the FHIR reference server as part of this investigation will be check
 # Investigation
 
 - Major versions are currently part of the profile name itself.
-- The FHIR server currently stores two resource names:
-	- The name declared in the "name" element in the profile: "name": "GPConnect-Appointment-1"
-	- The name at the end of the URL path: "url": "http://fhir-test.nhs.uk/StructureDefinition/gpconnect-appointment-1"
-- In the above example the names are the same apart from case, and both have the major version in
+- The FHIR server currently stores:
+	- A "name" - declared in the "name" element in the profile: "name": "GPConnect-Appointment-1"
+	- An "ID" - this is only declared at the end of the URL path: "url": "http://fhir-test.nhs.uk/StructureDefinition/gpconnect-appointment-1"
+- In the above example name and ID are the same apart from case, and both have the major version number in them
 
 - **Working assumption 1** : Major version can be retained in the filename, but NOT in the resource content
 - **Working assumption 2** : Major and minor versions will be held in the server using FHIR versioning - patch versions will not
