@@ -37,16 +37,17 @@ Changes to the FHIR reference server as part of this investigation will be check
 	- version="0.1"
 	- status="draft"
 	- url in the profile for all tests is https://fhir.nhs.uk/StructureDefinition/adam-patient
+	- [Link to test profile](src/main/resources/VersioningProfiles/Step1-Adam-Patient-1.xml)
 - Add the file into the FHIR server directory
 	- Expected:
-		- Server creates a "versioned" directory
-		- Server reads the major and minor version from inside the profile itself
-		- Server checks the version is in the form NN or NN.NN or NN.NN.NN - otherwise it gets rejected
-		- Major, minor and patch versions parsed into integers (note: filename is ignored)
-		- The ID of the resource is taken from the URL (adam-patient) and NOT the name
-		- Server writes a copy of the file into this directory in the format [id]-versioned-[version] - i.e. (adam-patient-versioned-0.1) (dropping patch version)
+		- Server creates a "versioned" directory **DONE**
+		- Server reads the major and minor version from inside the profile itself **DONE**
+		- Server checks the version is in the form NN or NN.NN or NN.NN.NN - otherwise it gets rejected **DONE**
+		- Major, minor and patch versions parsed into integers (note: filename is ignored) **DONE**
+		- The ID of the resource is taken from the URL (adam-patient) and NOT the name **DONE**
+		- Server writes a copy of the file into this directory in the format [id]-versioned-[version] - i.e. (adam-patient-versioned-0.1) (dropping patch version) **DONE**
 		- After this pre-process step, all versioned profiles are loaded into the FHIR server index from the versioned directory only
-		- Rejected profiles (those that can't be loaded) should be reported somehow - perhaps on a "secret" URL
+		- Rejected profiles (those that can't be loaded) should be reported somehow - perhaps on a "secret" URL **DONE**
 		- FHIR server profile index shows a single entry for "Adam-Patient" with a [Draft-0.1] decorator
 		- FHIR bundle for [baseurl]/StructureDefinition?name=Adam-Patient bundle returned contains a single entry for "Adam-Patient" with version 0.1 in it
 		- FHIR bundle for [baseurl]/StructureDefinition/adam-patient/_history bundle returned contains a single entry for "Adam-Patient" with version 0.1 in it
@@ -66,6 +67,7 @@ Changes to the FHIR reference server as part of this investigation will be check
 	- name="Adam-Patient"
 	- version="1.0"
 	- status="active"
+	- [Link to test profile](src/main/resources/VersioningProfiles/Step2-Adam-Patient-1.xml)
 - Add the file into the FHIR server directory
 	- Expected:
 		- Server reads the major and minor version from inside the profile, parses, etc
@@ -82,6 +84,7 @@ Changes to the FHIR reference server as part of this investigation will be check
 	- Change some values
 	- Update version to "1.1"
 	- status="draft"
+	- [Link to test profile](src/main/resources/VersioningProfiles/Step3-Adam-Patient-1.xml)
 - Add the file into the FHIR server directory
 	- Expected:
 		- Server reads the major and minor version from inside the profile, parses, etc
@@ -99,10 +102,12 @@ Changes to the FHIR reference server as part of this investigation will be check
 	- Change some values
 	- Update version to "1.1.1"
 	- status="draft"
+	- [Link to test profile](src/main/resources/VersioningProfiles/Step4-Adam-Patient-1.xml)
 - Add the file into the FHIR server directory
 	- Expected:
 		- Server reads the major and minor version from inside the profile, parses, etc
 		- Server writes a copy of the file into this directory with "-versioned-1.1" over-writing previous file with this name
+		- If both 1.1 and 1.1.1 files are in the incoming directory from Github for some reason, these will need to be processed in ascending version order to avoid the older version overwriting the newer version
 		- Versioned directory still contains three files - 0.1, 1.0 and 1.1 (1.1 file is now actually 1.1.1 patch version)
 		- FHIR server profile index still shows a single entry for "Adam-Patient" with two decorators: [Live-1.0] and [Draft-1.1.1]
 		- FHIR server rendered entry for "Adam-Patient" includes a version history on the right, showing [Draft-0.1], [Active-1.0], [Active-1.1.1]
@@ -116,6 +121,7 @@ Changes to the FHIR reference server as part of this investigation will be check
 	- Change some values
 	- Update version to "2.0"
 	- status="active"
+	- [Link to test profile](src/main/resources/VersioningProfiles/Step5-Adam-Patient-1.xml)
 - Add the file into the FHIR server directory
 	- Expected:
 		- Server reads the major and minor version from inside the profile, parses, etc
