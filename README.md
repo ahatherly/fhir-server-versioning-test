@@ -46,14 +46,14 @@ Changes to the FHIR reference server as part of this investigation will be check
 		- Major, minor and patch versions parsed into integers (note: filename is ignored) **DONE**
 		- The ID of the resource is taken from the URL (adam-patient) and NOT the name **DONE**
 		- Server writes a copy of the file into this directory in the format [id]-versioned-[version] - i.e. (adam-patient-versioned-0.1) (dropping patch version) **DONE**
-		- After this pre-process step, all versioned profiles are loaded into the FHIR server index from the versioned directory only
+		- After this pre-process step, all versioned profiles are loaded into the FHIR server index from the versioned directory only **DONE**
 		- Rejected profiles (those that can't be loaded) should be reported somehow - perhaps on a "secret" URL **DONE**
 		- FHIR server profile index shows a single entry for "Adam-Patient" with a [Draft-0.1] decorator
 		- FHIR bundle for [baseurl]/StructureDefinition?name=Adam-Patient bundle returned contains a single entry for "Adam-Patient" with version 0.1 in it
 		- FHIR bundle for [baseurl]/StructureDefinition/adam-patient/_history bundle returned contains a single entry for "Adam-Patient" with version 0.1 in it
-		- FHIR versioned read on [baseurl]/StructureDefinition/adam-patient/_history/0.1 returns the profile with version 0.1
-		- FHIR server rendered entry for "Adam-Patient" includes a version history on the right, showing just [Draft-0.1]
-		- Each version in the history list links to the versioned FHIR URL for that version
+		- FHIR versioned read on [baseurl]/StructureDefinition/adam-patient/_history/0.1 returns the profile with version 0.1 **DONE**
+		- FHIR server rendered entry for "Adam-Patient" includes a version history on the right, showing just [Draft-0.1] **DONE**
+		- Each version in the history list links to the versioned FHIR URL for that version **DONE**
 
 - Changes required to FHIR server to achieve this:
 	- TBC
