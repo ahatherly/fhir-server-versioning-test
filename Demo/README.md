@@ -6,7 +6,7 @@ Created for a WebEx with INTEROPen on 26th May 2017.
 
 The below diagram shows the basic flow for creating new profiles, then creating new versions for publication on the FHIR server.
 
-![Flowchart](Diagram.png)
+![Flowchart](Diagram.jpg)
 
 ### Step 1
 
