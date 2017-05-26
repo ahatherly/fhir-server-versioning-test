@@ -39,7 +39,7 @@
    <snapshot>
       <element>
          <path value="Patient"/>
-         <short value="This Patient resource represents the information needed for the JSON Web Token. "/>
+         <short value="This Patient resource is for a demo to INTEROPen on FHIR server versioning. "/>
          <definition value="Demographics and other administrative information about a patient receiving care or other health-related services"/>
          <alias value="SubjectOfCare Client Resident"/>
          <min value="1"/>
